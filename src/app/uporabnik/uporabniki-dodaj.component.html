@@ -1,0 +1,31 @@
+<h2>Dodaj uporabnika</h2>
+<div *ngIf="uporabnik">
+    <form (ngSubmit)="submitForm()" ngNativeValidate>
+        <table>
+            <tr>
+                <td><label for="ime">Ime</label></td>
+                <td><input [(ngModel)]="uporabnik.ime" id="ime" name="ime" required/></td>
+            </tr>
+            <tr>
+                <td><label for="priimek">Priimek</label></td>
+                <td><input [(ngModel)]="uporabnik.priimek" id="priimek" name="priimek" required/></td>
+            </tr>
+            <tr>
+                <td><label for="uporabniskoIme">Uporabniško ime</label></td>
+                <td><input [(ngModel)]="uporabnik.uporabniskoIme" id="uporabniskoIme" name="uporabniskoIme" 
+                            required minlength="4"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td><input type="email" [(ngModel)]="uporabnik.email" id="email" name="email">
+                </td>
+            </tr>
+        </table>
+        <div *ngIf="napaka" style="color: red; font-weight: bold">{{napaka}}</div>
+
+
+        <button type="button" (click)="nazaj()">Nazaj</button>
+        <button type="submit">Dodaj</button>
+    </form>
+</div>
